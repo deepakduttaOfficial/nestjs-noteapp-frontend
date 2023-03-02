@@ -9,11 +9,12 @@ import {
   FormLabel,
   IconButton,
   Input,
+  Progress,
   Textarea,
   useToast,
 } from "@chakra-ui/react";
 // React router dom
-import { NavLink, useParams } from "react-router-dom";
+import { NavLink, useNavigate, useParams } from "react-router-dom";
 import { getSinglePost, updateNote } from "../../helper/notehelper";
 import { isAuthenticate } from "../../helper";
 
@@ -28,6 +29,7 @@ interface CreatePost {
 
 const Note = () => {
   const toast = useToast();
+  const navigate = useNavigate();
   const { noteId } = useParams<any>();
   const auth = isAuthenticate();
   const [values, setValues] = useState<CreatePost>({
@@ -37,6 +39,7 @@ const Note = () => {
   // Destrucring
   const { title, description } = values;
   const [loading, setLoading] = useState<boolean>(false);
+  const [noteLoading, setNoteLoading] = useState(false);
 
   const handleChange =
     (name: string) =>
@@ -45,12 +48,16 @@ const Note = () => {
     };
 
   useEffect(() => {
+    setNoteLoading(true);
     getSinglePost(auth.access_token, noteId).then((response) => {
+      setNoteLoading(false);
       if (!response.error) {
         setValues({
           title: response.data.title,
           description: response.data.description,
         });
+      } else {
+        navigate("/");
       }
     });
   }, []);
@@ -95,6 +102,7 @@ const Note = () => {
         to="/"
       />
       <Card bg="transparent" shadow={"dark-lg"} mt="5">
+        {noteLoading && <Progress size="xs" isIndeterminate />}
         <CardBody>
           <FormControl mb="5">
             <FormLabel color="gray.400">Title</FormLabel>
@@ -102,8 +110,6 @@ const Note = () => {
               placeholder="Title"
               size="lg"
               type="text"
-              focusBorderColor="purple.700"
-              color={"white"}
               autoFocus
               value={title}
               onChange={handleChange("title")}
@@ -113,8 +119,6 @@ const Note = () => {
             <FormLabel color="gray.400">Description</FormLabel>
             <Textarea
               placeholder="Continue with you note..."
-              focusBorderColor="purple.700"
-              color={"white"}
               value={description}
               onChange={handleChange("description")}
             />

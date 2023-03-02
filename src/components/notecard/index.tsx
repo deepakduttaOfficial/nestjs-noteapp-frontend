@@ -45,18 +45,18 @@ const NoteCard = ({ note, index, setRefresh }: any) => {
       borderColor={"purple.500"}
       shadow="lg"
       backdropFilter="auto"
-      backdropContrast="90%"
+      backdropContrast="85%"
       as={LinkBox}
     >
       <CardHeader>
         <HStack alignItems="start" scaleX={"3"}>
           <HStack flex={"1"} as={NavLink} to={`/note/${note.id}`}>
-            <Badge colorScheme="purple" mt="1">
+            <Badge colorScheme="purple" mt="1" mr="4">
               {index}
             </Badge>
 
             <VStack alignItems="flex-start">
-              <HStack color="white">
+              <HStack color="purple.900">
                 <Heading
                   size="md"
                   variant={"h1"}

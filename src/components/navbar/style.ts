@@ -1,5 +1,5 @@
 export const navContainerStyle = {
-  color: "gray.600",
+  // color: "gray.600",
   minH: "60px",
   py: { base: 2 },
   px: { base: 4, md: 10 },

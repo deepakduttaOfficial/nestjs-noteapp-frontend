@@ -77,8 +77,6 @@ const Signup = () => {
               <Input
                 placeholder="Name"
                 type="text"
-                focusBorderColor="purple.700"
-                color={"white"}
                 autoFocus
                 value={name}
                 onChange={handleChange("name")}
@@ -90,8 +88,6 @@ const Signup = () => {
               <Input
                 placeholder="Enter you email"
                 type="email"
-                focusBorderColor="purple.700"
-                color={"white"}
                 value={email}
                 onChange={handleChange("email")}
                 isDisabled={loading}
@@ -102,8 +98,6 @@ const Signup = () => {
               <Input
                 placeholder="Enter a strong password"
                 type="password"
-                focusBorderColor="purple.700"
-                color={"white"}
                 value={password}
                 onChange={handleChange("password")}
                 isDisabled={loading}
@@ -127,7 +121,7 @@ const Signup = () => {
               Sign up
             </Button>
           </chakra.form>
-          <Text align={"center"} color="white">
+          <Text align={"center"}>
             Already a user?{" "}
             <Link as={NavLink} to="/e/signin" color={"blue.400"}>
               Signin

@@ -102,8 +102,6 @@ const Home = () => {
                 placeholder="Title"
                 size="lg"
                 type="text"
-                focusBorderColor="purple.700"
-                color={"white"}
                 autoFocus
                 value={title}
                 onChange={handleChange("title")}
@@ -113,8 +111,6 @@ const Home = () => {
               <FormLabel color="gray.400">Description</FormLabel>
               <Textarea
                 placeholder="Continue with you note..."
-                focusBorderColor="purple.700"
-                color={"white"}
                 value={description}
                 onChange={handleChange("description")}
               />

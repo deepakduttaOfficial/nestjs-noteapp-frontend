@@ -23,13 +23,14 @@ const Navbar = () => {
     <Box>
       <Flex
         {...navContainerStyle}
-        bgGradient="linear(151deg, rgb(27 32 68), rgb(58, 32, 105), rgb(38 45 78))"
+        // bgGradient="linear(151deg, rgb(27 32 68), rgb(58, 32, 105), rgb(38 45 78))"
       >
         <Flex flex={{ base: 1 }} ml={{ base: -2 }}>
           <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
-            color={"white"}
+            // color={"white"}
+            fontWeight="medium"
           >
             Note Book
           </Text>
