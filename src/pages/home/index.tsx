@@ -122,7 +122,6 @@ const Home = () => {
               _hover= {{
                 bg: "blue.500",
               }}
-              color="white"
               w="full"
               onClick={handleClick}
               isLoading={loading}
