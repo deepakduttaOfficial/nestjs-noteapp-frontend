@@ -58,7 +58,7 @@ const Signup = () => {
   const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault();
     if (name.length === 0 || email.length === 0 || email.length === 0) {
-      return toast({
+      toast({
         title: "All fields are required.",
         status: "error",
         duration: 9000,
@@ -104,65 +104,67 @@ const Signup = () => {
           boxShadow={"lg"}
           p={8}
         >
-          <Stack spacing={4} as={chakra.form} onSubmit={handleSubmit}>
-            <FormControl id="name">
-              <FormLabel>Enter your name</FormLabel>
-              <Input
-                type="text"
-                autoFocus
-                value={name}
-                onChange={handleChange("name")}
-                isDisabled={loading}
-              />
-            </FormControl>
-            <FormControl id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input
-                type="email"
-                value={email}
-                onChange={handleChange("email")}
-                isDisabled={loading}
-              />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input
-                type="password"
-                value={password}
-                onChange={handleChange("password")}
-                isDisabled={loading}
-              />
-            </FormControl>
-            <Stack spacing={10}>
-              <Button
-                bg={"blue.400"}
-                color={"white"}
-                _hover={{
-                  bg: "blue.500",
-                }}
-                isLoading={loading}
-                isDisabled={loading}
-                loadingText="Account Creating..."
-                type="submit"
-              >
-                Sign up
-              </Button>
-              <Stack
-                direction={{ base: "column", sm: "row" }}
-                align={"start"}
-                justify={"space-between"}
-              >
-                <Box />
-                <HStack>
-                  <Text>Don't have any account?</Text>
-                  <Link as={NavLink} to="/e/signin" color={"blue.400"}>
-                    {" "}
-                    Signin
-                  </Link>
-                </HStack>
+          <chakra.form onSubmit={handleSubmit}>
+            <Stack spacing={4}>
+              <FormControl id="name">
+                <FormLabel>Enter your name</FormLabel>
+                <Input
+                  type="text"
+                  autoFocus
+                  value={name}
+                  onChange={handleChange("name")}
+                  isDisabled={loading}
+                />
+              </FormControl>
+              <FormControl id="email">
+                <FormLabel>Email address</FormLabel>
+                <Input
+                  type="email"
+                  value={email}
+                  onChange={handleChange("email")}
+                  isDisabled={loading}
+                />
+              </FormControl>
+              <FormControl id="password">
+                <FormLabel>Password</FormLabel>
+                <Input
+                  type="password"
+                  value={password}
+                  onChange={handleChange("password")}
+                  isDisabled={loading}
+                />
+              </FormControl>
+              <Stack spacing={10}>
+                <Button
+                  bg={"blue.400"}
+                  color={"white"}
+                  _hover={{
+                    bg: "blue.500",
+                  }}
+                  isLoading={loading}
+                  isDisabled={loading}
+                  loadingText="Account Creating..."
+                  type="submit"
+                >
+                  Sign up
+                </Button>
+                <Stack
+                  direction={{ base: "column", sm: "row" }}
+                  align={"start"}
+                  justify={"space-between"}
+                >
+                  <Box />
+                  <HStack>
+                    <Text>Don't have any account?</Text>
+                    <Link as={NavLink} to="/e/signin" color={"blue.400"}>
+                      {" "}
+                      Signin
+                    </Link>
+                  </HStack>
+                </Stack>
               </Stack>
             </Stack>
-          </Stack>
+          </chakra.form>
         </Box>
       </Stack>
     </Flex>
